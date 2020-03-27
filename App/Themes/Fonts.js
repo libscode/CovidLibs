@@ -1,7 +1,8 @@
 const type = {
-  base: 'Avenir-Book',
-  bold: 'Avenir-Black',
-  emphasis: 'HelveticaNeue-Italic'
+  regular: 'Roboto',
+  medium: 'Roboto-Medium',
+  bold: 'Roboto-Bold',
+  extraBold: 'Roboto-Black'
 }
 
 const size = {
