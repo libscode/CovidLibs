@@ -11,6 +11,7 @@ import { Images } from '../Themes'
 // Components
 import StatCard from '../Components/StatCard'
 import StateMenu from '../Components/StateMenu'
+import DailyStat from '../Components/DailyStat'
 
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -32,12 +33,15 @@ class HomeScreen extends Component {
   _getData = () => {
     this.props.getSummary()
     this.props.getProvinsi()
+    this.props.getDaily()
   }
 
   render () {
     const { data, fetching } = this.props.summary
     const dataProvinsi = this.props.provinsi.data
     const fetchProvinsi = this.props.provinsi.fetching
+    const dataDaily = this.props.daily.data
+    const fetchDaily = this.props.daily.fetching
 
     return (
       <View style={styles.container}>
@@ -58,6 +62,8 @@ class HomeScreen extends Component {
               <Image source={Images.indoIcon} style={{width:75, height:75}} />
             </View>
           </View>
+
+          <DailyStat data={dataDaily} fetching={fetchDaily} />
 
           <View style={osmi("p-5")}>
             <StatCard
@@ -101,14 +107,16 @@ class HomeScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     summary: state.indo.summary,
-    provinsi: state.indo.provinsi
+    provinsi: state.indo.provinsi,
+    daily: state.indo.daily
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getSummary: value => dispatch(IndonesiaActions.getSummaryRequest()),
-    getProvinsi: value => dispatch(IndonesiaActions.getProvinsiRequest())
+    getProvinsi: value => dispatch(IndonesiaActions.getProvinsiRequest()),
+    getDaily: value => dispatch(IndonesiaActions.getDailyRequest())
   }
 }
 

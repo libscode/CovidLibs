@@ -25,3 +25,15 @@ export function* getProvinsi(api, action) {
     yield put(IndonesiaActions.getProvinsiFailure(response))
   }
 }
+
+export function* getDaily(api, action) {
+  const { data } = action
+  const response = yield call(api.getDaily, data)
+
+  if (response.ok) {
+    yield put(IndonesiaActions.getDailySuccess(response.data.data))
+  } else {
+    ErrorHandler(response)
+    yield put(IndonesiaActions.getDailyFailure(response))
+  }
+}

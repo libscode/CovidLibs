@@ -11,7 +11,11 @@ import { IndonesiaTypes } from '../Redux/IndonesiaRedux'
 import { startup } from './StartupSagas'
 
 // Indonesia
-import { getSummary, getProvinsi } from './IndonesiaSagas'
+import {
+  getSummary,
+  getProvinsi,
+  getDaily
+} from './IndonesiaSagas'
 
 const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
@@ -19,6 +23,7 @@ export default function * root () {
   yield all([
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(IndonesiaTypes.GET_SUMMARY_REQUEST, getSummary, api),
-    takeLatest(IndonesiaTypes.GET_PROVINSI_REQUEST, getProvinsi, api)
+    takeLatest(IndonesiaTypes.GET_PROVINSI_REQUEST, getProvinsi, api),
+    takeLatest(IndonesiaTypes.GET_DAILY_REQUEST, getDaily, api)
   ])
 }

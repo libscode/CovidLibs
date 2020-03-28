@@ -16,10 +16,12 @@ const create = (baseURL = 'https://indonesia-covid-19.mathdro.id/api') => {
 
   const getSummary = () => api.get(``)
   const getProvinsi = () => api.get(`/provinsi`)
+  const getDaily = () => api.get(`/harian`)
 
   return {
     getSummary,
     getProvinsi,
+    getDaily,
 
     api
   }
