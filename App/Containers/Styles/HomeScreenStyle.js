@@ -14,6 +14,12 @@ export default StyleSheet.create({
     "items-center",
     "p-5"
   ]),
+  summaryTitle: apply([
+    "text-white",
+    "mb-3",
+    "text-2xl",
+    family(Fonts.type.bold)
+  ]),
   welcomeText: apply([
     "text-white",
     "text-5xl",

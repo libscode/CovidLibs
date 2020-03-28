@@ -55,7 +55,7 @@ class HomeScreen extends Component {
         }>
           <View style={styles.summaryContainer}>
             <View style={osmi("flex-11")}>
-              <Text style={styles.welcomeText}>Covid-19 Summary of Indonesia</Text>
+              <Text style={styles.welcomeText}>Covid-19 Report of Indonesia</Text>
             </View>
 
             <View style={osmi(['flex-1', "items-end"])}>
@@ -66,6 +66,8 @@ class HomeScreen extends Component {
           <DailyStat data={dataDaily} fetching={fetchDaily} />
 
           <View style={osmi("p-5")}>
+            <Text style={styles.summaryTitle}>Summary</Text>
+
             <StatCard
               title="SEMBUH"
               type="sembuh"

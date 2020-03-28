@@ -39,7 +39,7 @@ export default StyleSheet.create({
     family(Fonts.type.bold)
   ]),
   helpLabel: apply([
-    "text-base",
+    "text-sm",
     "text-white",
     family(Fonts.type.medium)
   ])
